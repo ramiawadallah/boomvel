@@ -113,6 +113,9 @@ class MultiauthServiceProvider extends ServiceProvider
             __DIR__.'/routes/routes.php' => base_path("routes/{$prefix}.php"),
         ], 'routes');
         $this->publishes([
+            __DIR__.'/themes' => base_path("public"),
+        ], 'public');
+        $this->publishes([
             __DIR__.'/Http/Controllers' => base_path("app/http/controllers/{$prefix}"),
         ], 'Controllers');
         $this->publishes([
