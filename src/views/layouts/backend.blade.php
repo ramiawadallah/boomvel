@@ -8,12 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- VENDOR CSS -->
-    <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/vendor/linearicons/style.css">
-    <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/vendor/chartist/css/chartist-custom.css">
-    <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/vendor/fontawesome/css/all.css">
-    <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/vendor/toastr/toastr.min.css">
+    <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/linearicons/style.css">
+    <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/chartist/css/chartist-custom.css">
+    <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/fontawesome/css/all.css">
+    <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/toastr/toastr.min.css">
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{url('/')}}/themes/default/assets/backend/css/main.css">
     <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
@@ -127,12 +127,12 @@
     </div>
     <!-- END WRAPPER -->
     <!-- Javascript -->
-    <script src="{{url('/')}}/themes/default/assets/backend/vendor/jquery/jquery.min.js"></script>
-    <script src="{{url('/')}}/themes/default/assets/backend/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="{{url('/')}}/themes/default/assets/backend/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="{{url('/')}}/themes/default/assets/backend/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-    <script src="{{url('/')}}/themes/default/assets/backend/vendor/chartist/js/chartist.min.js"></script>
-    <script src="{{url('/')}}/themes/default/assets/backend/vendor/toastr/toastr.min.js"></script>
+    <script src="{{url('/')}}/themes/default/assets/backend/jquery/jquery.min.js"></script>
+    <script src="{{url('/')}}/themes/default/assets/backend/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{url('/')}}/themes/default/assets/backend/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="{{url('/')}}/themes/default/assets/backend/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="{{url('/')}}/themes/default/assets/backend/chartist/js/chartist.min.js"></script>
+    <script src="{{url('/')}}/themes/default/assets/backend/toastr/toastr.min.js"></script>
     <script src="{{url('/')}}/themes/default/assets/backend/scripts/klorofil-common.js"></script>
     <script>
     $(function() {
