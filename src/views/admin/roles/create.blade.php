@@ -1,4 +1,4 @@
-@extends('layouts.app') 
+@extends('layouts.backend') 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -7,7 +7,7 @@
                 <div class="card-header bg-info text-white">Add New Role</div>
 
                 <div class="card-body">
-    @include('multiauth::message')
+                @include('admin.message')
                     <form action="{{ route('admin.role.store') }}" method="post">
                         @csrf
                         <div class="form-group">
