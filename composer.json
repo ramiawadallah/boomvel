@@ -18,7 +18,7 @@
         "laravelcollective/html":"^5.4.0",
         "unisharp/laravel-filemanager": "~1.8",
         "uxweb/sweet-alert": "^1.4",
-        "awadallah/presenter": "0.1.*",
+        "awadallah/presenter": "dev-master",
         "baum/baum": "~1.1"
     },
     "require-dev": {
