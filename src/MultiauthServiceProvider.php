@@ -101,7 +101,7 @@ class MultiauthServiceProvider extends ServiceProvider
             __DIR__.'/database/migrations/' => database_path('migrations'),
         ], 'migrations');
         $this->publishes([
-            __DIR__.'/views' => resource_path('views/admin'),
+            __DIR__.'/views' => resource_path('views'),
         ], 'views');
         $this->publishes([
             __DIR__.'/factories' => database_path('factories'),
@@ -113,7 +113,7 @@ class MultiauthServiceProvider extends ServiceProvider
             __DIR__.'/routes/routes.php' => base_path("routes/{$prefix}.php"),
         ], 'routes');
         $this->publishes([
-            __DIR__.'/themes' => base_path("public"),
+            __DIR__.'/themes' => base_path("public/themes"),
         ], 'public');
         $this->publishes([
             __DIR__.'/Http/Controllers' => base_path("app/http/controllers/{$prefix}"),
