@@ -1,58 +1,71 @@
 @extends('layouts.backend') 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+
+<form action="{{route('admin.update',[$admin->id])}}" method="post">
+    @csrf @method('patch')
+    <!-- Material Design -->
+    <h2 class="content-heading">
+        <button type="submit" class="btn btn-info btn-md">
+            Submite
+        </button>
+    </h2>
+
+    <div class="row">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Edit details of {{$admin->name}}</div>
-
-                <div class="card-body">
-                    @include('admin.message')
-                    <form action="{{route('admin.update',[$admin->id])}}" method="post">
-                        @csrf @method('patch')
-                        <div class="form-group row">
-                            <label for="role" class="col-md-4 col-form-label text-md-right">Name</label>
-                            <input type="text" value="{{ $admin->name }}" name="name" class="form-control col-md-6" id="role">
+            <!-- Static Labels -->
+            <div class="block">
+                <div class="block-header">
+                    <h3 class="block-title">Register New {{ ucfirst(config('multiauth.prefix')) }}</h3>
+                </div>
+                <div class="block-content block-content-narrow">
+                    <div class="form-group">
+                        <div class="form-material form-material-info floating">
+                             <label>Name</label>
+                             <input  id="name" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $admin->name }}"
+                            required autofocus>
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="role" class="col-md-4 col-form-label text-md-right">Email</label>
-                            <input type="text" value="{{ $admin->email }}" name="email" class="form-control col-md-6" id="role">
+                    <div class="form-group ">
+                        <div class="form-material form-material-info floating">
+                            <label>Email</label>
+                            <input  id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $admin->email }}"
+                                required>
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="role_id" class="col-md-4 col-form-label text-md-right">Assign Role</label>
-
-                            <select name="role_id[]" id="role_id" class="form-control col-md-6 {{ $errors->has('role_id') ? ' is-invalid' : '' }}" multiple>
-                                <option selected disabled>Select Role</option>
-                                @foreach ($roles as $role)
-                                    <option value="{{ $role->id }}" 
-                                        @if (in_array($role->id,$admin->roles->pluck('id')->toArray())) 
-                                            selected 
-                                        @endif >{{ $role->name }}
-                                    </option>
-                                @endforeach
-                            </select> 
-
-                            @if ($errors->has('role_id'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('role_id') }}</strong>
-                                </span> 
-                            @endif
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-sm btn-primary">
-                                    Change
-                                </button>
-                                <a href="{{ route('admin.show') }}" class="btn btn-danger btn-sm float-right">Back</a>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
+            <!-- END Static Labels -->
+        </div>
+        <div class="col-md-4">
+            <!-- Floating Labels -->
+            <div class="block">
+                <div class="block-header">
+                    <h3 class="block-title">Options</h3>
+                </div>
+                <div class="block-content block-content-narrow">
+                  <div class="form-group">
+                        <label>Select Role</label>
+                        <select name="role_id[]" id="role_id" class="form-control {{ $errors->has('role_id') ? ' is-invalid' : '' }}" multiple>
+                            <option selected disabled>Select Role</option>
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}" 
+                                    @if (in_array($role->id,$admin->roles->pluck('id')->toArray())) 
+                                        selected 
+                                    @endif >{{ $role->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- END Floating Labels -->
         </div>
     </div>
-</div>
+    <!-- END Material Design -->                                   
+</form>
+
+
+
 @endsection

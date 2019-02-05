@@ -3,40 +3,51 @@
 
 @section('paneltitle') {{ config('app.name', 'Boomvel') }} {{ ucfirst(config('multiauth.prefix')) }} Login to your account @endsection
 
-<form class="form-auth-small"  method="POST" action="{{ route('admin.login') }}" aria-label="{{ __('Admin Login') }}">
+<form class="js-validation-login form-horizontal"  method="POST" action="{{ route('admin.login') }}" aria-label="{{ __('Admin Login') }}">
     @csrf
     <div class="form-group">
-        <label for="signin-email" class="control-label sr-only">Email</label>
-
-        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" name="email" value="{{ old('email') }}" required autofocus> 
-            @if ($errors->has('email'))
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('email') }}</strong>
-                </span> 
-            @endif
+        <div class="col-xs-12">
+            <div class="form-material form-material-primary floating">
+                <label for="email">Email</label>
+                <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" id="email" required name="email" value="{{ old('email') }}">
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span> 
+                @endif
+            </div>
+        </div>
     </div>
-
     <div class="form-group">
-        <label for="signin-password" class="control-label sr-only">Password</label>
-        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password" name="password" required> 
-        @if ($errors->has('password'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('password') }}</strong>
-            </span> 
-        @endif
+        <div class="col-xs-12">
+            <div class="form-material form-material-primary floating">
+                <label for="login-password">Password</label>
+                <input class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" required id="login-password" name="password">
+                @if ($errors->has('password'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span> 
+                @endif
+            </div>
+        </div>
     </div>
 
-    <div class="form-group clearfix">
-        <label class="fancy-checkbox element-left">
-            <input type="checkbox" name="remember" id="remember" {{ old( 'remember') ? 'checked' : '' }}>
-            <span>{{ __('Remember Me') }}</span>
-        </label>
+
+
+    <label class="check">
+        {{ __('Remember Me') }}
+        <input type="checkbox" id="login-remember-me"  name="remember" {{ old( 'remember') ? 'checked' : '' }}><span class="checkmark"></span> 
+    </label>
+
+    <div class="row">
+        <div class="form-group col-xs-6 col-sm-12 col-md-4">
+            <button class="btn btn-primary btn-md" type="submit"><i class="si si-login pull-right"></i> {{ __('Login') }}</button>
+        </div>
+        <div class="col-xs-6 col-sm-12 col-md-8">
+            <span class="helper-text"><i class="fa fa-lock"></i> <a href="{{ route('admin.password.request') }}">{{ __('Forgot Your Password?') }}</a></span>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-lg btn-block">{{ __('Login') }}</button>
-    <div class="bottom">
-        <span class="helper-text"><i class="fa fa-lock"></i> <a href="{{ route('admin.password.request') }}">{{ __('Forgot Your Password?') }}</a></span>
-    </div>
+
 </form>
-
 
 @endsection

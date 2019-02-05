@@ -1,53 +1,22 @@
 @extends('layouts.backend') 
 @section('content')
-<!-- OVERVIEW -->
-<div class="panel panel-headline">
-    <div class="panel-heading">
-        <h3 class="panel-title">{{ ucfirst(config('multiauth.prefix')) }} Dashboard</h3>
-        @if (session('status'))
-        <p class="panel-subtitle">{{ session('status') }}</p>
-        @endif You are logged in to {{ config('multiauth.prefix') }} side!
+<div class="row">
+    <div class="col-6 col-md-3 col-lg-6 col-xl-3">
+        <a class="block block-rounded block-link-pop border-left border-primary border-4x"">
+            <div class="block-content block-content-full">
+                <div class="font-size-sm font-w600 text-uppercase text-muted">Admins</div>
+                <div class="font-size-h2 font-w400 text-dark">{{ \App\Admin::count() }}</div>
+            </div>
+        </a>
     </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="metric">
-                    <span class="icon"><i class="fa fa-users"></i></span>
-                    <p>
-                        <span class="number">{{ \App\Admin::count() }}</span>
-                        <span class="title">Admins</span>
-                    </p>
-                </div>
+
+    <div class="col-6 col-md-3 col-lg-6 col-xl-3">
+        <a class="block block-rounded block-link-pop border-left border-primary border-4x"">
+            <div class="block-content block-content-full">
+                <div class="font-size-sm font-w600 text-uppercase text-muted">Users</div>
+                <div class="font-size-h2 font-w400 text-dark">{{ \App\User::count() }}</div>
             </div>
-            <div class="col-md-3">
-                <div class="metric">
-                    <span class="icon"><i class="fa fa-shopping-bag"></i></span>
-                    <p>
-                        <span class="number">203</span>
-                        <span class="title">Sales</span>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="metric">
-                    <span class="icon"><i class="fa fa-eye"></i></span>
-                    <p>
-                        <span class="number">274,678</span>
-                        <span class="title">Visits</span>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="metric">
-                    <span class="icon"><i class="fa fa-eye"></i></span>
-                    <p>
-                        <span class="number">274,678</span>
-                        <span class="title">Visits</span>
-                    </p>
-                </div>
-            </div>
-        </div>
+        </a>
     </div>
 </div>
-<!-- END OVERVIEW -->
 @endsection

@@ -1,76 +1,80 @@
 @extends('layouts.backend') 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+
+<form method="POST" action="{{ route('admin.register') }}">
+    @csrf
+    <!-- Material Design -->
+    <h2 class="content-heading">
+        <button type="submit" class="btn btn-info btn-md">
+            Submit
+        </button>
+    </h2>
+
+    <div class="row">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Register New {{ ucfirst(config('multiauth.prefix')) }}</div>
-                <div class="card-body">
-                    <form method="POST" action="{{ route('admin.register') }}">
-                        @csrf
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}"
-                                    required autofocus>
-                            </div>
+            <!-- Static Labels -->
+            <div class="block">
+                <div class="block-header">
+                    <h3 class="block-title">Register New {{ ucfirst(config('multiauth.prefix')) }}</h3>
+                </div>
+                <div class="block-content block-content-narrow">
+                    <div class="form-group">
+                        <div class="form-material form-material-info floating">
+                             <input  id="name" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}"
+                            required autofocus>
+                            <label>Name</label>
                         </div>
+                    </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"
-                                    required>
-                            </div>
+                    <div class="form-group ">
+                        <div class="form-material form-material-info floating">
+                            <input  id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"
+                                required>
+                            <label>Email</label>
                         </div>
+                    </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' text-danger' : '' }} row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
-                                    required>
-                            </div>
+                    <div class="form-group">
+                        <div class="form-material form-material-info floating">
+                            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
+                              required>
+                              <label>Password</label>
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
+                    <div class="form-group">
+                        <div class="form-material form-material-info floating">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            <label>Password confirmation</label>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="role_id" class="col-md-4 col-form-label text-md-right">Assign Role</label>
-
-                            <div class="col-md-6">
-                                <select name="role_id[]" id="role_id" class="form-control {{ $errors->has('role_id') ? ' is-invalid' : '' }}" multiple>
-                                    <option selected disabled>Select Role</option>
-                                    @foreach ($roles as $role)
-                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    Register
-                                </button>
-
-                                <a href="{{ route('admin.show') }}" class="btn btn-danger btn-sm float-right">
-                                    Back
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
+            <!-- END Static Labels -->
+        </div>
+        <div class="col-md-4">
+            <!-- Floating Labels -->
+            <div class="block">
+                <div class="block-header">
+                    <h3 class="block-title">Options</h3>
+                </div>
+                <div class="block-content block-content-narrow">
+                  <div class="form-group">
+                        <label>Select Role</label>
+                        <select name="role_id[]" id="role_id" class="form-control {{ $errors->has('role_id') ? ' is-invalid' : '' }}" multiple>
+                            <option selected disabled>Select Role</option>
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ $role->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- END Floating Labels -->
         </div>
     </div>
-</div>
+    <!-- END Material Design -->                                   
+</form>
+
+
 @endsection
