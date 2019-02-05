@@ -18,12 +18,12 @@ class MultiauthServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->canHaveAdminBackend()) {
-            $this->loadViewsFrom(__DIR__.'/views', 'multiauth');
-            $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-            $this->loadRoutesFrom(__DIR__.'/routes/routes.php');
+            $this->loadViewsFrom(__DIR__ . '/views', 'multiauth');
+            $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+            $this->registerRoutes();
             $this->publisheThings();
-            $this->mergeAuthFileFrom(__DIR__.'/../config/auth.php', 'auth');
-            $this->mergeConfigFrom(__DIR__.'/../config/multiauth.php', 'multiauth');
+            $this->mergeAuthFileFrom(__DIR__ . '/../config/auth.php', 'auth');
+            $this->mergeConfigFrom(__DIR__ . '/../config/multiauth.php', 'multiauth');
             $this->loadBladeSyntax();
             $this->loadAdminCommands();
         }
@@ -42,21 +42,53 @@ class MultiauthServiceProvider extends ServiceProvider
     protected function loadFactories()
     {
         $appFactories = scandir(database_path('/factories'));
-        $factoryPath = ! in_array('AdminFactory.php', $appFactories) ? __DIR__.'/factories' : database_path('/factories');
+        $factoryPath  = !in_array('AdminFactory.php', $appFactories) ? __DIR__ . '/factories' : database_path('/factories');
 
         $this->app->make(Factory::class)->load($factoryPath);
     }
 
+    /**
+     * Register the package routes.
+     *
+     * @return void
+     */
+    private function registerRoutes()
+    {
+        Route::group($this->routeConfiguration(), function () {
+            $this->loadRoutesFrom(__DIR__ . '/routes/routes.php');
+        });
+    }
+
+    /**
+     * Get the Blogg route group configuration array.
+     *
+     * @return array
+     */
+    private function routeConfiguration()
+    {
+        return [
+            'namespace'  => "Boomvel\Multiauth\Http\Controllers",
+            'middleware' => 'web',
+            'prefix'     => config('multiauth.prefix', 'admin'),
+        ];
+    }
+
     protected function loadRoutesFrom($path)
     {
-        $prefix = config('multiauth.prefix', 'admin');
+        $prefix   = config('multiauth.prefix', 'admin');
         $routeDir = base_path('routes');
         if (file_exists($routeDir)) {
             $appRouteDir = scandir($routeDir);
-            if (! $this->app->routesAreCached()) {
+            if (!$this->app->routesAreCached()) {
                 require in_array("{$prefix}.php", $appRouteDir) ? base_path("routes/{$prefix}.php") : $path;
             }
         }
+
+        if (!app('router')->has('login')) {
+            Route::get('/login', function () {
+            })->name('login');
+        }
+
         require $path;
     }
 
@@ -122,11 +154,10 @@ class MultiauthServiceProvider extends ServiceProvider
             __DIR__.'/Model' => base_path("app"),
         ], 'Model');
     }
-
     protected function loadBladeSyntax()
     {
         Blade::if('admin', function ($role) {
-            if (! auth('admin')->check()) {
+            if (!auth('admin')->check()) {
                 return  false;
             }
             $role = explode(',', $role);
