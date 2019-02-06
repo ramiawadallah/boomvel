@@ -57,7 +57,7 @@ publish vendor
 Run migrate
 
 ```bash
-php artisan migrate
+		php artisan migrate
 ```
 
 ## First Admin
@@ -65,7 +65,7 @@ php artisan migrate
 Obviously, first time you need at least one super admin to login with and then create other admins.
 
 ```
-php artisan multiauth:seed --role=super
+		php artisan multiauth:seed --role=super
 ```
 
 
@@ -83,7 +83,7 @@ Keep in mind that only a Super Admin can create new Admin.
 You can Publish package views files and overrides with yours so that you can have views which suits your project design.
 
 ```bash
-php artisan vendor:publish --tag="multiauth:views"
+		php artisan vendor:publish --tag="multiauth:views"
 ```
 
 **Validations**
@@ -91,7 +91,7 @@ php artisan vendor:publish --tag="multiauth:views"
 Yes you can write validation rules to your new columns or change existing validation rules by publishing config file.
 
 ```bash
-php artisan vendor:publish --tag="multiauth:config"
+		php artisan vendor:publish --tag="multiauth:config"
 ```
 
 ## Change Prefix
@@ -101,16 +101,16 @@ With prefix we mean what you want to call your admin side, we call it admin you 
 Suppose you have changed prefix to 'master' now everywhere instead of 'admin' word, that changed to 'master'
 
 ```php
- /*
-    |--------------------------------------------------------------------------
-    | Prefix
-    |--------------------------------------------------------------------------
-    |
-    | Use prefix to before the routes of multiauth package.
-    | This way you can keep your admin page secure.
-    | Default : admin
-    */
-    'prefix' => 'admin', // can change it to, lets say 'prefix' => 'master'
+	 /*
+	    |--------------------------------------------------------------------------
+	    | Prefix
+	    |--------------------------------------------------------------------------
+	    |
+	    | Use prefix to before the routes of multiauth package.
+	    | This way you can keep your admin page secure.
+	    | Default : admin
+	    */
+	    'prefix' => 'admin', // can change it to, lets say 'prefix' => 'master'
 ```
 
 ## Create Roles
@@ -120,7 +120,7 @@ To create a new role you have two options:
 1. Using artisan command
 
 ```bash
-php artisan multiauth:role rolename
+	php artisan multiauth:role rolename
 ```
 
 2. Using Interface
@@ -133,7 +133,7 @@ Now you can click on 'Add Role' button to create new role.
 ## Publish Routes file
 
 ```bash
-php artisan vendor:publish --tag="multiauth:routes"
+	php artisan vendor:publish --tag="multiauth:routes"
 ```
 
 ## Access Level
@@ -143,9 +143,9 @@ php artisan vendor:publish --tag="multiauth:routes"
 1. You can use 'role' middleware to allow various admin for accessing certain section according to their role.
 
 ```php
-Route::get('admin/check',function(){
-    return "This route can only be accessed by admin with role of Editor"
-})->middleware('role:editor');
+	Route::get('admin/check',function(){
+	    return "This route can only be accessed by admin with role of Editor"
+	})->middleware('role:editor');
 ```
 
 Here it does't matter if you give role as uppercase or lowercase or mixed, this package take care of all these.
@@ -154,9 +154,9 @@ Here it does't matter if you give role as uppercase or lowercase or mixed, this 
    A super admin can access all lower role sections.
 
 ```php
-Route::get('admin/check',function(){
-    return "This route can only be accessed by super admin"
-})->middleware('role:super');
+	Route::get('admin/check',function(){
+	    return "This route can only be accessed by super admin"
+	})->middleware('role:super');
 ```
 
 **With Blade Syntax**
@@ -165,16 +165,16 @@ You can simply use blade syntax for showing or hiding any section for admin with
 For example, If you want to show a button for admin with role of editor then write.
 
 ```php
-@admin('editor')
-    <button>Only For Editor</button>
-@endadmin
+	@admin('editor')
+	    <button>Only For Editor</button>
+	@endadmin
 ```
 
 If you want to add multiple role, you can do like this
 ```php
-@admin('editor,publisher,any_role')
-    <button> This is visible to admin with all these role</button>
-@endadmin
+	@admin('editor,publisher,any_role')
+	    <button> This is visible to admin with all these role</button>
+	@endadmin
 ```
 
 ## Another Auth
@@ -182,14 +182,14 @@ If you want to add multiple role, you can do like this
 **Apart from Admin section, you can make a another auth**
 
 ```php
-php artisan multiauth:make {guard}
+	php artisan multiauth:make {guard}
 ```
 
 
 **You can rollback this auth also if you want.**
 
 ```php
-php artisan multiauth:rollback {guard}
+	php artisan multiauth:rollback {guard}
 ```
 
 
