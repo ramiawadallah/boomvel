@@ -134,6 +134,9 @@ class MultiauthServiceProvider extends ServiceProvider
             __DIR__.'/database/migrations/' => database_path('migrations'),
         ], 'migrations');
         $this->publishes([
+            __DIR__.'/database/seeds/' => database_path('seeds'),
+        ], 'seds');
+        $this->publishes([
             __DIR__.'/views' => resource_path('views'),
         ], 'views');
         $this->publishes([

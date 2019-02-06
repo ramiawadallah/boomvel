@@ -73,7 +73,7 @@
                         <div class="content content-full font-size-sm text-muted text-center">
                             <div class="py-1 text-center ">
                                 Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href="https://ramiawadallah.com" target="_new">Rami Awadallah</a> | 
-                                <a class="font-w600" href="https://ramiawadallah.com" target="_blank">Boomvel</a> &copy; <span data-toggle="year-copy">2019 </span>
+                                <a class="font-w600" href="https://ramiawadallah.com" target="_blank">Boomvel</a> &copy; <span data-toggle="year-copy">2018</span>
                             </div>
                         </div>
                     </div>
