@@ -146,6 +146,9 @@ class MultiauthServiceProvider extends ServiceProvider
             __DIR__.'/../config/multiauth.php' => config_path('multiauth.php'),
         ], 'config');
         $this->publishes([
+            __DIR__.'/../config/cms.php' => config_path('cms.php'),
+        ], 'config');
+        $this->publishes([
             __DIR__.'/routes/routes.php' => base_path("routes/{$prefix}.php"),
         ], 'routes');
         $this->publishes([
@@ -154,6 +157,27 @@ class MultiauthServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/Http/Controllers' => base_path("app/http/controllers/{$prefix}"),
         ], 'Controllers');
+        $this->publishes([
+            __DIR__.'/Controllers' => base_path("app/Http/Controllers"),
+        ], 'Controllers');
+        $this->publishes([
+            __DIR__.'/Helpers' => base_path("app/Helpers"),
+        ], 'Helpers');
+        $this->publishes([
+            __DIR__.'/Relation' => base_path("app/Relation"),
+        ], 'Relation');
+        $this->publishes([
+            __DIR__.'/Template' => base_path("app/Template"),
+        ], 'Template');
+        $this->publishes([
+            __DIR__.'/Providers' => base_path("app/Providers"),
+        ], 'Providers');
+        $this->publishes([
+            __DIR__.'/Console-helper' => base_path("app/Console"),
+        ], 'Console');
+        $this->publishes([
+            __DIR__.'/View' => base_path("app/View"),
+        ], 'View');
         $this->publishes([
             __DIR__.'/Model' => base_path("app"),
         ], 'Model');
