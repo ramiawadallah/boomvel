@@ -20,32 +20,32 @@
                 <div class="block-content block-content-narrow">
                     <div class="form-group">
                         <div class="form-material form-material-info floating">
+                             <label>Name</label>
                              <input  id="name" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}"
                             required autofocus>
-                            <label>Name</label>
                         </div>
                     </div>
 
                     <div class="form-group ">
                         <div class="form-material form-material-info floating">
+                            <label>Email</label>
                             <input  id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"
                                 required>
-                            <label>Email</label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="form-material form-material-info floating">
+                            <label>Password</label>
                             <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
                               required>
-                              <label>Password</label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="form-material form-material-info floating">
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             <label>Password confirmation</label>
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                         </div>
                     </div>
                 </div>
