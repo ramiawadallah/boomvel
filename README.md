@@ -5,9 +5,12 @@ Laravel CMS
 - **Author**: Ramiawadallah
 - **Author Homepage**: https://ramiawadallah.com
 
-
-
+```bash
+composer require ramiawadallah/boomvel
+```
 Add this trait on this following path ../vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php
+
+```bash
 
 if (trait_exists('App\Relation\RelationMethods')) { 
     trait call_relation_helpers {
@@ -22,3 +25,12 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
 {
     use call_relation_helpers,
     ......... atc
+```
+
+Run migrate
+
+```bash
+php artisan migrate
+```
+
+
