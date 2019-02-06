@@ -27,6 +27,33 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
     ......... atc
 ```
 
+config\app.php  --> providers array
+
+```bash
+        Baum\Providers\BaumServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+```
+
+  config\app.php  --> aliases array
+
+```bash
+        'Up' => App\Http\Controllers\Upload::class,
+
+        'Btn' => App\helpers\Src\Btn::class,
+        'bsForm' => App\helpers\Src\bsForm::class,
+        'langForm' => App\helpers\Src\langForm::class,
+        'MyRoute' => App\helpers\Src\Routes\MyRoute::class,
+        'Files' => App\helpers\Src\Files\Files::class,
+        'Control' => App\helpers\Src\Control::class,
+
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+
+```
+publish vendor 
+ 
+         php artisan vendor:publish --force
+
 Run migrate
 
 ```bash
