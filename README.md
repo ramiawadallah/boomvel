@@ -50,9 +50,12 @@ config\app.php  --> providers array
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
 
 ```
+
 publish vendor 
- 
+
+```bash
          php artisan vendor:publish --force
+```
 
 Run migrate
 
