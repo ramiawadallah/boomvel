@@ -74,6 +74,11 @@ Add Composer autoload
 ],
 ```
 
+Composer dump-autoload
+
+```bash
+composer dump-autoload
+```
 
 Run migrate
 
