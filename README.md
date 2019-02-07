@@ -83,7 +83,7 @@ composer dump-autoload
 Run migrate
 
 ```bash
-php artisan migrate
+php artisan migrate --seed
 ```
 
 ## First Admin
