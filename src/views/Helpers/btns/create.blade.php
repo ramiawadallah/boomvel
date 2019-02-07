@@ -5,19 +5,19 @@
 
 @if(!empty($attr))
 
-	<a href="{{ $href }}" class="btn btn-secondary"
+	<a href="{{ $href }}" class="btn btn-sm btn-success"
 
 	@foreach($attr as $key => $value)
 	{{ $key }}="{{ $value }}" &nbsp
 	@endforeach
 
 	>
-	<i class="far fa-plus-square"></i> 
+	<i class="fa fa-plus"></i>
 	</a>
 
 @else
-	<a href="{{ $href }}" class="btn btn-secondary">
-	<i class="far fa-plus-square"></i>
+	<a href="{{ $href }}" class="btn btn-sm btn-success">
+	<i class="fa fa-plus"></i>
 	{{ trans('lang.create')}}
 	</a>
 

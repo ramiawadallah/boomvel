@@ -135,7 +135,7 @@ class MultiauthServiceProvider extends ServiceProvider
         ], 'migrations');
         $this->publishes([
             __DIR__.'/database/seeds/' => database_path('seeds'),
-        ], 'seds');
+        ], 'seeds');
         $this->publishes([
             __DIR__.'/views' => resource_path('views'),
         ], 'views');
@@ -152,6 +152,9 @@ class MultiauthServiceProvider extends ServiceProvider
             __DIR__.'/routes/routes.php' => base_path("routes/{$prefix}.php"),
         ], 'routes');
         $this->publishes([
+            __DIR__.'/routes/web.php' => base_path("routes/web.php"),
+        ], 'routes-web');
+        $this->publishes([
             __DIR__.'/themes' => base_path("public/themes"),
         ], 'public');
         $this->publishes([
@@ -160,6 +163,9 @@ class MultiauthServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/Controllers' => base_path("app/Http/Controllers"),
         ], 'Controllers');
+        $this->publishes([
+            __DIR__.'/Middleware' => base_path("app/Http/Middleware"),
+        ], 'Middleware');
         $this->publishes([
             __DIR__.'/Helpers' => base_path("app/Helpers"),
         ], 'Helpers');
@@ -172,6 +178,9 @@ class MultiauthServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/Providers' => base_path("app/Providers"),
         ], 'Providers');
+        $this->publishes([
+            __DIR__.'/resources/lang' => resource_path("lang"),
+        ], 'lang');
         $this->publishes([
             __DIR__.'/Console-helper' => base_path("app/Console"),
         ], 'Console');
