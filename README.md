@@ -8,6 +8,13 @@ Laravel CMS
 ```bash
 composer require ramiawadallah/boomvel
 ```
+
+publish vendor 
+
+```bash
+         php artisan vendor:publish --force
+```
+
 Add this trait on this following path ../vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php
 
 ```bash
@@ -51,11 +58,22 @@ config\app.php  --> providers array
 
 ```
 
-publish vendor 
+Add Composer autoload 
 
 ```bash
-         php artisan vendor:publish --force
+		"files":[
+            "app/Helpers/HelperValidatesRequest.php",
+            "app/Helpers/helpers.php",
+            "app/Helpers/routesMethods.php",
+            "app/Helpers/functions.php",
+            "app/Helpers/Src/bsForm.php",
+            "app/Helpers/Src/Btn.php",
+            "app/Helpers/Src/Control.php",
+            "app/Helpers/Src/langForm.php",
+            "app/Relation/RelationMethods.php"
+        ],
 ```
+
 
 Run migrate
 
@@ -103,7 +121,8 @@ You can change the prefix in your config file you have just published.
 With prefix we mean what you want to call your admin side, we call it admin you can call it whatever you want.
 Suppose you have changed prefix to 'master' now everywhere instead of 'admin' word, that changed to 'master'
 
-```php
+```bash
+	<? php
 	 /*
 	    |--------------------------------------------------------------------------
 	    | Prefix
@@ -145,7 +164,7 @@ Now you can click on 'Add Role' button to create new role.
 
 1. You can use 'role' middleware to allow various admin for accessing certain section according to their role.
 
-```php
+```bash
 	Route::get('admin/check',function(){
 	    return "This route can only be accessed by admin with role of Editor"
 	})->middleware('role:editor');
@@ -156,7 +175,7 @@ Here it does't matter if you give role as uppercase or lowercase or mixed, this 
 2. If you want a section to be accessed by only super user then use role:super middleware
    A super admin can access all lower role sections.
 
-```php
+```bash
 	Route::get('admin/check',function(){
 	    return "This route can only be accessed by super admin"
 	})->middleware('role:super');
@@ -167,14 +186,15 @@ Here it does't matter if you give role as uppercase or lowercase or mixed, this 
 You can simply use blade syntax for showing or hiding any section for admin with perticular role.
 For example, If you want to show a button for admin with role of editor then write.
 
-```php
+```bash
 	@admin('editor')
 	    <button>Only For Editor</button>
 	@endadmin
 ```
 
 If you want to add multiple role, you can do like this
-```php
+
+```bash
 	@admin('editor,publisher,any_role')
 	    <button> This is visible to admin with all these role</button>
 	@endadmin
@@ -184,14 +204,14 @@ If you want to add multiple role, you can do like this
 
 **Apart from Admin section, you can make a another auth**
 
-```php
+```bash
 	php artisan multiauth:make {guard}
 ```
 
 
 **You can rollback this auth also if you want.**
 
-```php
+```bash
 	php artisan multiauth:rollback {guard}
 ```
 
