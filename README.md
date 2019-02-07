@@ -86,6 +86,11 @@ Run migrate
 php artisan migrate --seed
 ```
 
+Run this comend for presenter provider
+```bash
+php artisan vendor:publish --provider="Ramiawadallah\Presenter\PresenterServiceProvider"
+```
+
 ## First Admin
 
 Obviously, first time you need at least one super admin to login with and then create other admins.
@@ -93,7 +98,6 @@ Obviously, first time you need at least one super admin to login with and then c
 ```bash
 php artisan multiauth:seed --role=super
 ```
-
 
 Now you can login your admin side by going to https://localhost:8000/admin with creadential of **email = super@admin.com** and **password = secret**
 Obviously you can later change these things.
