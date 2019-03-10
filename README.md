@@ -52,6 +52,7 @@ config\app.php  --> aliases array
 ```
 
 composer.json
+
 ```bash
 	"autoload-dev": {
         "files":[
