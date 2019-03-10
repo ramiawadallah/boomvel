@@ -51,6 +51,22 @@ config\app.php  --> aliases array
 
 ```
 
+composer.json
+```bash
+	"autoload-dev": {
+        "files":[
+            "app/Helpers/HelperValidatesRequest.php",
+            "app/Helpers/helpers.php",
+            "app/Helpers/routesMethods.php",
+            "app/Helpers/functions.php",
+            "app/Helpers/Src/bsForm.php",
+            "app/Helpers/Src/Btn.php",
+            "app/Helpers/Src/Control.php",
+            "app/Helpers/Src/langForm.php",
+            "app/Relation/RelationMethods.php"
+        ],
+```
+
 add this middleware
 
 ```bash
@@ -74,8 +90,9 @@ publish vendor
 Run migrate
 
 ```bash
-		php artisan migrate
+		php artisan migrate --seed
 ```
+
 
 ## First Admin
 
