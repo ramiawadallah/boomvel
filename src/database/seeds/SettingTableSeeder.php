@@ -30,7 +30,7 @@ class SettingTableSeeder extends Seeder
             'copyright'         => 'Boomvel 2019',
             'keywords'          => 'Admin Panel, Laravel, CMS, Multiauth, Multilanguage',
             
-            'maintenance'       => 'open',
+            'maintenance'       => 'close',
 
             // Photo Logo for Home page website
             'logo'              => '',
