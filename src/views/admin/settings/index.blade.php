@@ -21,7 +21,7 @@
                     $form->text('subtitle',site('subtitle',$lang));
                     $form->text('copyright',site('copyright',$lang));
                     $form->text('address',site('address',$lang));
-                    $form->textarea('desc',site('desc',$lang));
+                    $form->textarea('content',site('content',$lang));
                 }) !!}
 
                 {!! bsForm::text('mainvideo',site('mainvideo')) !!}
