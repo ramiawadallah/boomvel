@@ -16,8 +16,6 @@
     "minimum-stability": "dev",
     "require": {
         "laravelcollective/html":"^5.7.0",
-        "unisharp/laravel-filemanager": "~1.8",
-        "uxweb/sweet-alert": "^1.4",
         "ramiawadallah/presenter": "dev-master",
         "baum/baum": "~1.1"
     },
