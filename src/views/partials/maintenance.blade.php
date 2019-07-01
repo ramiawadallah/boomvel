@@ -74,6 +74,5 @@ footer{
   <h3>To contact us</h3>
   <a href="http://www.ramiawadallah.com" target="_new" >www.ramiawadallah.com</a>
 </main>
-<footer>MrTimcakes</footer>
 </body>
 </html>

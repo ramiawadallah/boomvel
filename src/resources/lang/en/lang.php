@@ -29,7 +29,7 @@
            'stutes'  => 'Stutes',
            'not-active'  => 'Not active',
            'active'  => 'Active',
-           'create-new-page'  => 'Create new page',
+           'create-new-pages'  => 'Create new page',
            'edit-page'  => 'Edit page',
            'page-settings'  => 'Page settings',
            'order'  => 'Order',
@@ -222,19 +222,4 @@
             'create-new-quicknews'  => 'Create New quick news',
             'edit-quicknews'  => 'Edit quick news',
             'add-new-quicknews'  => 'Add New quick news',
-
-            'email_sudan'=> 'Email Sudan',
-            'phone_sudan'=> 'Phone Sudan', 
-            'fax_sudan'=> 'Fax Sudan',
-            'pobox_sudan'=> 'P.O.Box Sudan',
-            'map_sudan'=> 'Map Sudan',
-            'address_sudan' => 'Address Sudan',
-
-            'email_jordan'=> 'Email Jordan',
-            'phone_jordan'=> 'Phone Jordan', 
-            'fax_jordan'=> 'Fax Jordan',
-            'pobox_jordan'=> 'P.O.Box Jordan',
-            'map_jordan'=> 'Map Jordan',
-            'address_jordan' => 'Address Jordan',
-
         ];

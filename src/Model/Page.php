@@ -4,12 +4,9 @@ namespace App;
 
 //use Illuminate\Database\Eloquent\Model;
 use Baum\Node;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Page extends Node
 {
-    use SoftDeletes;
-
     protected $table = 'pages';
     protected $dates = ['deleted_at'];
 

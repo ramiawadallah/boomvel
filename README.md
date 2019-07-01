@@ -95,6 +95,39 @@ Run migrate
 ```
 
 
+Change this code in ConfigHandler
+
+```bash
+<?php
+
+namespace UniSharp\LaravelFilemanager\Handlers;
+
+class ConfigHandler
+{
+    public function userField()
+    {
+        if(auth('admin')->check())
+        {      
+            return auth('admin')->user()->id;
+        }
+        else
+        {
+            return 'admin';
+        }
+    }
+
+
+
+/*
+    public function userField()
+    {
+        
+        return auth()->user()->id;
+    }
+*/
+}
+```
+
 ## First Admin
 
 Obviously, first time you need at least one super admin to login with and then create other admins.
